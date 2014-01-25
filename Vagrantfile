@@ -33,6 +33,7 @@ Vagrant::Config.run do |config|
         chef.add_recipe "java"
         chef.add_recipe "cassandra::tarball"
         chef.json = {
+          :java =>      {'jdk_version' => '7'},
           :cassandra => {'cluster_name' => 'My Cluster',
                          'initial_token' => server['initial_token'],
                          'seeds' => seeds.join(","),
